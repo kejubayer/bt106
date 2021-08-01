@@ -18,6 +18,11 @@ Route::get('/',[DashboardController::class,'index']);
 Route::get('/test',[DashboardController::class,'test']);
 
 
+Route::get('/products',[\App\Http\Controllers\Backend\ProductController::class,'index'])->name('admin.product');
+Route::get('/products/create',[\App\Http\Controllers\Backend\ProductController::class,'create'])->name('admin.product.create');
+Route::post('/products/create',[\App\Http\Controllers\Backend\ProductController::class,'store']);
+
+
 
 
 
