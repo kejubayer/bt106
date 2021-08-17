@@ -9,18 +9,27 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($products as $product)
+            @foreach($products as $key=>$product)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$key+1}}</th>
                     <td>{{$product->name}}</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{$product->price}} BDT</td>
+                    <td>{{$product->desc}}</td>
+                    <td>
+                        <img src="{{asset('uploads/products/'.$product->photo)}}" alt="" height="50px">
+                    </td>
+                    <td>
+                        <a href="{{route('admin.product.edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                        <a href="{{route('admin.product.delete',$product->id)}}" class="btn btn-warning">Delete</a>
+                    </td>
                 </tr>
             @endforeach
 
