@@ -11,19 +11,31 @@
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{$product->name}}" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{$product->name}}">
+                        @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Product Price</label>
-                        <input type="number" class="form-control" name="price" id="price" required value="{{$product->price}}">
+                        <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" id="price"  value="{{$product->price}}">
+                        @error('price')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="desc" class="form-label">Product Description</label>
-                        <textarea class="form-control" name="desc" id="desc" required>{{$product->desc}}</textarea>
+                        <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc" >{{$product->desc}}</textarea>
+                        @error('desc')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="photo" class="form-label">Product Photo</label>
-                        <input type="file" class="form-control mb-3" name="photo" id="photo">
+                        <input type="file" class="form-control mb-3 @error('photo') is-invalid @enderror" name="photo" id="photo">
+                        @error('photo')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                         <img src="{{asset('uploads/products/'.$product->photo)}}" alt="" height="100px">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
