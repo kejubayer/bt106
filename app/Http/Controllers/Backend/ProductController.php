@@ -27,7 +27,7 @@ class ProductController extends Controller
                 'price' => 'required',
                 'desc' => 'required',
                 'photo' => 'required|image|max:1024',
-            ],$messages = [
+            ], $messages = [
                 'name.required' => 'Wrong!',
                 'name.min' => 'hello!',
             ]);

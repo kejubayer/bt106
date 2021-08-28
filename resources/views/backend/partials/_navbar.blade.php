@@ -20,9 +20,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.user')}}">
                     <span data-feather="users"></span>
-                    Customers
+                    User
                 </a>
             </li>
             <li class="nav-item">
