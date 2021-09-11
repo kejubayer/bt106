@@ -27,9 +27,6 @@ class ProductController extends Controller
                 'price' => 'required',
                 'desc' => 'required',
                 'photo' => 'required|image|max:1024',
-            ], $messages = [
-                'name.required' => 'Wrong!',
-                'name.min' => 'hello!',
             ]);
             $newName = 'product_' . time() . '.' . $request->file('photo')->getClientOriginalExtension();
             $request->photo->move('uploads/products/', $newName);

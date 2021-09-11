@@ -42,6 +42,7 @@ class UserController extends Controller
             User::create($inputs);
             return redirect()->route('admin.user');
         } catch (\Exception $exception) {
+            dd($exception->getMessage());
             $error = $exception->validator->getMessageBag();
             return redirect()->back()->withErrors($error)->withInput();
         }
