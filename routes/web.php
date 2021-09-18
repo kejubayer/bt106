@@ -20,7 +20,14 @@ Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])
 Route::get('login', [\App\Http\Controllers\Backend\LoginController::class, 'login'])->name('login');
 Route::post('login', [\App\Http\Controllers\Backend\LoginController::class, 'doLogin']);
 
+Route::get('register',[\App\Http\Controllers\Frontend\UserController::class,'register'])->name('register');
+Route::post('register',[\App\Http\Controllers\Frontend\UserController::class,'doRegister']);
+
 Route::middleware('auth')->group(function () {
+    //profile
+    Route::get('profile',[\App\Http\Controllers\Frontend\UserController::class,'profile'])->name('user.profile');
+    Route::post('profile',[\App\Http\Controllers\Frontend\UserController::class,'updateProfile']);
+
 
     Route::get('logout', [\App\Http\Controllers\Backend\LoginController::class, 'logout'])->name('logout');
     Route::prefix('dashboard')->group(function () {

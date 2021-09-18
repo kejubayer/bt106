@@ -3,12 +3,19 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
     public function login()
     {
+        if (auth()->user()){
+            if (auth()->user()->role == 'admin'){
+                return redirect()->route('admin.dashboard');
+            }
+            return redirect()->route('home');
+        }
         return view('auth.login');
     }
 
@@ -21,10 +28,11 @@ class LoginController extends Controller
                 'password' => 'required',
             ]);
             $creds = $request->except('_token');
-//            dd(Auth::attempt($creds));
-//            dd(\auth()->attempt($creds));
             if (\auth()->attempt($creds)) {
-                return redirect()->route('admin.dashboard');
+                if (auth()->user()->role == 'admin'){
+                    return redirect()->route('admin.dashboard');
+                }
+                return redirect()->route('home');
             }
             return redirect()->back();
 
