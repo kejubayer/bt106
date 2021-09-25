@@ -15,6 +15,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php
+                $total_quantity = 0;
+                $total_price = 0;
+                @endphp
+
                 @foreach($carts as $key=>$cart)
                     <tr>
                         <td>{{$cart['name']}}</td>
@@ -22,7 +27,19 @@
                         <td>{{$cart['quantity']}}</td>
                         <td>{{$cart['quantity'] * $cart['price']}} ৳</td>
                     </tr>
+
+                    @php
+                        $total_quantity += $cart['quantity'];
+                        $total_price += $cart['quantity'] * $cart['price'];
+                    @endphp
                 @endforeach
+
+                <tr>
+                    <td></td>
+                    <th>Total</th>
+                    <td>{{$total_quantity}}</td>
+                    <td>{{$total_price}} ৳</td>
+                </tr>
 
                 </tbody>
             </table>
