@@ -43,6 +43,13 @@
 
                 </tbody>
             </table>
+            @if($total_quantity == 0)
+                <div class="btn-warning">
+                    <p>No Product added to cart! Please add <a href="{{route('home')}}">product</a> to cart</p>
+                </div>
+            @else
+                <a href="{{route('checkout')}}" class="btn btn-success">Checkout</a>
+            @endif
         </div>
     </div>
 

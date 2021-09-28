@@ -27,6 +27,10 @@ Route::get('add/cart/{id}',[\App\Http\Controllers\Frontend\CartController::class
 Route::get('cart',[\App\Http\Controllers\Frontend\CartController::class,'show'])->name('cart');
 
 Route::middleware('auth')->group(function () {
+    //order
+    Route::get('checkout',[\App\Http\Controllers\Frontend\CartController::class,'checkout'])->name('checkout');
+    Route::post('order',[\App\Http\Controllers\Frontend\CartController::class,'order'])->name('order');
+
     //profile
     Route::get('profile',[\App\Http\Controllers\Frontend\UserController::class,'profile'])->name('user.profile');
     Route::post('profile',[\App\Http\Controllers\Frontend\UserController::class,'updateProfile']);

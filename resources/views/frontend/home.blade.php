@@ -25,7 +25,8 @@
                 @foreach($products as $product)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="{{asset('uploads/products/'.$product->photo)}}" alt="" height="200px">
+{{--                        <img src="{{asset('uploads/products/'.$product->photo)}}" alt="" height="200px">--}}
+                        <img src="{{$product->photo}}" alt="" height="200px">
 
                         <div class="card-body">
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
