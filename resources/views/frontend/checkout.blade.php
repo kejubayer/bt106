@@ -74,6 +74,18 @@
                         <label for="exampleInputEmail1" class="form-label" >Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="{{auth()->user()->email}}">
                     </div>
+                    <div class="mb-3">
+                        <label for="payment_method" class="form-label" >Payment Method</label>
+                        <select name="payment_method" id="payment_method" class="form-control">
+                            <option value="Bkash">Bkash</option>
+                            <option value="Rocket">Rocket</option>
+                            <option value="Nagod">Nagod</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txn_id" class="form-label" >Txn Id</label>
+                        <input type="text" name="txn_id" class="form-control" id="txn_id">
+                    </div>
 
                     <input type="hidden" name="price" value="{{$total_price}}">
                     <input type="hidden" name="quantity" value="{{$total_quantity}}">

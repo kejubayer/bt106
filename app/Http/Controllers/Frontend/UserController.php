@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +12,8 @@ class UserController extends Controller
 {
     public function profile()
     {
-        return view('frontend.profile');
+        $orders = Order::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+        return view('frontend.profile',compact('orders'));
     }
 
     public function updateProfile(Request $request)

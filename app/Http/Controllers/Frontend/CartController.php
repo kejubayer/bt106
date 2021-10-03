@@ -52,6 +52,7 @@ class CartController extends Controller
 
     public function order(Request $request)
     {
+//        dd($request->all());
         $inputs = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -59,6 +60,8 @@ class CartController extends Controller
             'phone' => $request->input('phone'),
             'price' => $request->input('price'),
             'quantity' => $request->input('quantity'),
+            'payment_method' => $request->input('payment_method'),
+            'txn_id' => $request->input('txn_id'),
             'truck_no' => 'hr'.auth()->user()->id.time(),
             'user_id' => auth()->user()->id,
             'status' => 'Pending'
@@ -75,8 +78,14 @@ class CartController extends Controller
             ]);
         }
         \session()->forget('cart');
-            
+
         return redirect()->route('user.profile');
+    }
+
+    public function orderShow($id)
+    {
+        $order = Order::find($id);
+        return view('frontend.order',compact('order'));
     }
 
 
