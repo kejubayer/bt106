@@ -11,7 +11,7 @@
                     creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
                     entirely.</p>
                 <p>
-                    <a href="{{route('cart')}}" class="btn btn-primary my-2">Show Cart</a>
+                    <a href="{{route('cart')}}" class="btn btn-primary my-2">Show Cart ({{$total_quantity}})</a>
 {{--                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>--}}
                 </p>
             </div>

@@ -26,4 +26,17 @@ class OrderController extends Controller
         $order->update(['status'=>$request->input('status')]);
         return redirect()->back();
     }
+
+    public function processing()
+    {
+        $status="Processing";
+        $orders = Order::orderBy('id','desc')->where('status','Processing')->paginate(10);
+        return view('backend.orders.status',compact('orders','status'));
+    }
+    public function pending()
+    {
+        $status="Pending";
+        $orders = Order::orderBy('id','desc')->where('status','Pending')->paginate(10);
+        return view('backend.orders.status',compact('orders','status'));
+    }
 }

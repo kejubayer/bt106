@@ -26,9 +26,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.order.processing')}}">
                     <span data-feather="bar-chart-2"></span>
-                    Reports
+                    Processing
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.order.pending')}}">
+                    <span data-feather="bar-chart-2"></span>
+                    pending
                 </a>
             </li>
             <li class="nav-item">
